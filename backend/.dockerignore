@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+venv/
+.env
+promptchain.db
+data/
+.git/
+.gitignore
+Dockerfile
+# requirements.txt MUST NOT be ignored

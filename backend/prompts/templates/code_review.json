@@ -1,0 +1,42 @@
+[
+  {
+    "id": "review-readability-quality",
+    "domain": "code_review",
+    "title": "General Code Quality & Readability Review",
+    "description": "Review code for clarity, maintainability, naming conventions, and logical structure without rewriting.",
+    "template": "You are a senior code reviewer. I need you to review the following {language} code for readability and quality. Do not rewrite the whole code or provide a corrected version; instead, give line-referenced, actionable suggestions.\n\nCode:\n```\n{code_snippet}\n```\n\nFocus on: variable/function naming clarity, logical flow, code comments sufficiency, and structural improvements. For each issue, provide:\n- Line number(s) or code reference\n- What the problem is\n- Severity (minor/major)\n- Why it matters\n- Suggested fix (one or two sentences, not full rewrite)\n\nFormat as a structured list. Avoid generic praise; be specific and direct.",
+    "tags": ["readability", "maintainability", "code-quality", "student-code"]
+  },
+  {
+    "id": "review-refactoring-duplication",
+    "domain": "code_review",
+    "title": "Refactoring: Reduce Duplication & Extract Functions",
+    "description": "Identify repetitive code patterns and suggest targeted refactoring (extract function, consolidate logic, DRY principle).",
+    "template": "You are a refactoring specialist reviewing {language} code. Identify patterns of code duplication or overly complex logic that could be simplified through extraction or consolidation.\n\nCode:\n```\n{code_snippet}\n```\n\nFor each refactoring opportunity, provide:\n- Lines or code blocks involved\n- The duplication or complexity problem\n- Your suggested refactor (with a before/after code snippet of just the affected section—not the whole file)\n- Why this refactor is better (readability, maintainability, or reusability)\n- Difficulty level (easy/medium/hard)\n\nPrioritize high-impact refactors (DRY violations, extractable functions). Do not suggest micro-optimizations. Be concise and specific.",
+    "tags": ["refactoring", "dry-principle", "extract-function", "duplication"]
+  },
+  {
+    "id": "review-performance-efficiency",
+    "domain": "code_review",
+    "title": "Performance & Efficiency Review",
+    "description": "Analyze code for performance bottlenecks, inefficient algorithms, unnecessary loops, and resource waste.",
+    "template": "You are a performance engineer. Review the following {language} code for efficiency issues, bottlenecks, and resource waste. Focus on algorithmic complexity, loop efficiency, memory usage, and unnecessary operations.\n\nCode:\n```\n{code_snippet}\n```\n\nFor each performance concern, provide:\n- Location in code\n- What is inefficient (e.g., O(n²) loop, redundant processing, memory leak risk)\n- Severity (minor/moderate/critical)\n- Estimated impact (execution time, memory, or readability trade-off)\n- Suggested optimization (brief explanation or small code change, not full rewrite)\n\nIgnore micro-optimizations. Focus on real improvements that would measurably affect runtime or resource consumption.",
+    "tags": ["performance", "optimization", "efficiency", "algorithmic-complexity"]
+  },
+  {
+    "id": "review-security-basics",
+    "domain": "code_review",
+    "title": "Security Review: Common Student Vulnerabilities",
+    "description": "Identify common security mistakes in student code: hardcoded secrets, input validation gaps, SQL injection, insecure practices.",
+    "template": "You are a security auditor reviewing {language} code for common vulnerabilities and insecure practices typical in student code. Focus on: hardcoded credentials/API keys, missing input validation, SQL injection risk, unsafe file operations, and unhandled errors that leak information.\n\nCode:\n```\n{code_snippet}\n```\n\nFor each security finding, provide:\n- Location in code\n- The vulnerability or risk\n- Severity (low/medium/high/critical)\n- Why it's a problem (real-world impact)\n- Recommended fix (with a brief code example if appropriate)\n\nAssume this code may eventually handle real user data. Be realistic and practical; do not flag every theoretical risk, only genuine security concerns.",
+    "tags": ["security", "vulnerabilities", "input-validation", "hardcoded-secrets"]
+  },
+  {
+    "id": "review-style-guide-compliance",
+    "domain": "code_review",
+    "title": "Code Style & Best Practices Checklist",
+    "description": "Check code compliance against a provided style guide or standard best practices for the language.",
+    "template": "You are a code reviewer enforcing a style guide and best practices. Review the following {language} code against these criteria:\n\n{style_criteria}\n\nCode:\n```\n{code_snippet}\n```\n\nFor each violation or miss, provide:\n- Line number(s)\n- Which rule or practice was violated/missed\n- Current state vs. expected state\n- Suggested fix (reference the specific rule)\n- Severity (style/convention/best-practice)\n\nFormat as a checklist-style report. If the code is compliant with all listed criteria, explicitly state that. Focus on the criteria provided; do not add external rules.",
+    "tags": ["style-guide", "best-practices", "conventions", "code-standards"]
+  }
+]

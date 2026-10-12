@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount data directory to persist the SQLite DB
+      - promptchain_data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - VITE_API_BASE_URL=${VITE_API_BASE_URL:-http://localhost:8000}
+    ports:
+      - "${FRONTEND_PORT:-5173}:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  promptchain_data:

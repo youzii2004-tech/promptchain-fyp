@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: promptchain-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        value: sqlite:///./data/promptchain.db
+      - key: ALLOWED_ORIGINS
+        value: https://promptchain-fyp.netlify.app,http://localhost:5173,http://127.0.0.1:5173
+        # Netlify deploy-preview subdomains (agent-<hash>--promptchain-fyp.netlify.app)
+        # are handled separately via allow_origin_regex in backend/main.py, not here.
+    # NOTE: Render's free plan does not support persistent disks — the SQLite DB
+    # resets on every deploy/restart/spin-down. Fine for a live demo; if
+    # persistence across restarts matters later, upgrade to a paid instance
+    # (unlocks disks) or point DATABASE_URL at a free external Postgres
+    # (e.g. Neon/Supabase free tier).

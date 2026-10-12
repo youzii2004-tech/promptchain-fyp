@@ -1,0 +1,42 @@
+[
+  {
+    "id": "algo-sorting-implement-analyze",
+    "domain": "algorithms",
+    "title": "Implement & Analyze a Sorting Algorithm",
+    "description": "Generate a working implementation of a sorting algorithm with step-by-step explanation and complete Big-O complexity analysis.",
+    "template": "You are a Computer Science tutor specializing in algorithm design and analysis. I need you to help me understand and implement a sorting algorithm.\n\nAlgorithm: {algorithm_name}\nProgramming language: {language}\nConstraints: Assume the array can be any size and contain duplicates.\n\nPlease provide:\n1. A clear explanation of how {algorithm_name} works (2-3 sentences)\n2. A complete, working implementation in {language} with inline comments explaining key steps\n3. A complexity analysis table with:\n   - Best-case time complexity and scenario\n   - Average-case time complexity\n   - Worst-case time complexity and scenario\n   - Space complexity and explanation\n4. One short example trace showing how the algorithm processes [3, 1, 4, 1, 5]\n\nFormat the complexity analysis as a structured table. Ensure the code handles edge cases like empty arrays and single-element arrays.",
+    "tags": ["sorting", "implementation", "complexity analysis", "big-o"]
+  },
+  {
+    "id": "algo-search-trace-debug",
+    "domain": "algorithms",
+    "title": "Trace & Debug a Search Algorithm",
+    "description": "Execute a search algorithm step-by-step, showing state changes and identifying bottlenecks or bugs.",
+    "template": "You are a code debugger specializing in algorithm execution tracing. I need you to trace through a search algorithm's execution.\n\nAlgorithm: {algorithm_name}\nInput array: {array_input}\nTarget value: {target_value}\n\nPlease provide:\n1. A step-by-step execution trace showing:\n   - The current state of pointers/indices at each step\n   - Which elements are being compared\n   - Any decisions made (e.g., which branch is taken)\n2. A trace table with columns: [Step #, Action, Current Index/Pointer, Comparison, Decision]\n3. The final result (element found/not found, number of comparisons)\n4. A brief analysis: Is this the most efficient search for this data? Why or why not?\n\nMake the trace clear and detailed enough that I can follow exactly what the algorithm does. Highlight any inefficiencies or unnecessary comparisons.",
+    "tags": ["searching", "execution trace", "debugging", "algorithm analysis"]
+  },
+  {
+    "id": "algo-dp-recurrence-solve",
+    "domain": "algorithms",
+    "title": "Convert Problem to DP Recurrence & Solution",
+    "description": "Break down a problem into overlapping subproblems, derive the recurrence relation, and implement an optimized DP solution.",
+    "template": "You are a dynamic programming expert. I have a problem that I believe can be solved using DP, and I need help structuring it.\n\nProblem: {problem_description}\nConstraints: {constraints}\nInput format: {input_format}\nExpected output: {output_format}\n\nPlease provide:\n1. Problem decomposition: Identify the optimal substructure and overlapping subproblems (2-3 sentences)\n2. Recurrence relation: Write it in mathematical notation (e.g., dp[n] = ...) and explain what each term means\n3. Base case(s): What are the simplest cases that terminate the recursion?\n4. A working DP solution in {language} using either top-down (memoization) or bottom-up (tabulation) approach with inline comments\n5. Complexity analysis: Time and space complexity, and justify why this is better than a naive recursive solution\n6. One worked example: Show the DP table or memoization cache filled in for {example_input}\n\nEnsure the solution handles edge cases like empty inputs or single elements.",
+    "tags": ["dynamic programming", "recurrence relation", "memoization", "optimization"]
+  },
+  {
+    "id": "algo-bigO-code-analysis",
+    "domain": "algorithms",
+    "title": "Analyze Big-O Complexity of Code",
+    "description": "Analyze arbitrary code to determine time and space complexity, identifying dominant operations and worst-case scenarios.",
+    "template": "You are an algorithm complexity analyst. I need you to analyze the Big-O time and space complexity of this code.\n\nProgramming language: {language}\nCode:\n```\n{code_snippet}\n```\n\nPlease provide:\n1. Time complexity analysis:\n   - Break down the code by section (e.g., each loop, each recursive call)\n   - For each loop/recursion, identify how many times it executes (as a function of input size n)\n   - Identify the dominant term and give the overall Big-O time complexity\n2. Space complexity analysis:\n   - Account for all variable storage, arrays, recursion call stack, or data structures used\n   - Give the overall Big-O space complexity\n3. Detailed explanation of why certain operations dominate (e.g., \"the nested loops dominate because...\")\n4. Best-case, average-case, and worst-case scenarios with brief explanation of when each occurs\n5. If applicable, suggest if there's a faster algorithm for this problem\n\nFormat the analysis clearly with code annotations if helpful. Explain your reasoning step-by-step so I can verify each claim.",
+    "tags": ["complexity analysis", "big-o", "time complexity", "space complexity"]
+  },
+  {
+    "id": "algo-pseudocode-implement",
+    "domain": "algorithms",
+    "title": "Translate Pseudocode to Code with Edge Cases",
+    "description": "Convert algorithm pseudocode into working code with explicit edge case handling and verification.",
+    "template": "You are a code implementation specialist. I need you to convert pseudocode into working code.\n\nAlgorithm pseudocode:\n{pseudocode}\n\nProgramming language: {language}\nInput constraints: {constraints}\n\nPlease provide:\n1. A direct translation of the pseudocode into {language}, keeping the same logical flow\n2. Inline comments explaining what each section does\n3. Explicit edge case handling for:\n   - Empty or null inputs\n   - Single-element inputs\n   - Boundary conditions (e.g., off-by-one errors)\n   - Any constraint violations mentioned above\n4. A test suite with at least 5 test cases:\n   - 2-3 normal cases\n   - 1-2 edge cases\n   - Expected output for each\n5. A brief explanation of any optimizations or modifications you made from the pseudocode\n\nEnsure the code is production-ready and handles all edge cases gracefully without crashes or undefined behavior.",
+    "tags": ["pseudocode", "implementation", "edge cases", "testing"]
+  }
+]

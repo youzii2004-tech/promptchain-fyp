@@ -1,0 +1,42 @@
+[
+  {
+    "id": "research-paper-summary",
+    "domain": "research",
+    "title": "Paper Summarization: Key Contributions & Limitations",
+    "description": "Distill a paper or abstract into core contributions, methodology, findings, and acknowledged limitations without inventing citations or claims.",
+    "template": "You are a research assistant helping a CS student summarize academic papers accurately. Read the following paper excerpt or abstract carefully. Extract and organize: (1) the paper's main research question or problem, (2) the key contributions (be specific—what does this paper add that's new?), (3) the methodology or approach used, (4) the main findings or results, and (5) any limitations the authors themselves mention. **Critical constraint**: only use information present in the provided text. Do NOT invent citations, results, or claims not explicitly stated. If a limitation or contribution is unclear, mark it as \"[unclear from text]\" rather than guessing. Format your summary as a numbered list with clear section headers. Here is the paper text:\n\n{paper_text_or_abstract}",
+    "tags": ["summarization", "paper-analysis", "no-hallucination"]
+  },
+  {
+    "id": "research-comparative-analysis",
+    "domain": "research",
+    "title": "Comparative Analysis: Two or More Research Approaches",
+    "description": "Compare 2–3 papers or research approaches on a shared research question, highlighting differences in methodology, results, and implications.",
+    "template": "You are a research assistant helping a CS student compare different research approaches. I will provide summaries or excerpts from {number_of_papers} papers (or research approaches) that all address the same general research question: {research_question}. For each paper, extract: (1) the specific research question or hypothesis, (2) the methodology or algorithm used, (3) the key findings or results, (4) any datasets, benchmarks, or evaluation metrics mentioned. Then provide a **comparative summary** table or structured comparison showing how each approach differs. **Critical constraint**: only compare and extract information present in the provided texts. Do not invent missing details or results. If a paper does not explicitly state a result or metric, note it as \"not reported in text.\" Format the comparison to make differences and trade-offs clear (e.g., accuracy vs. efficiency, simplicity vs. generality). Here are the papers or excerpts:\n\n{paper_summaries_or_excerpts}",
+    "tags": ["comparison", "literature-review", "methodology-analysis"]
+  },
+  {
+    "id": "research-concept-explanation",
+    "domain": "research",
+    "title": "Explain a Research Concept at Chosen Expertise Level",
+    "description": "Break down a technical research concept or method into clear, grounded explanations suitable for a target audience expertise level.",
+    "template": "You are a research educator explaining technical concepts to CS students. I want you to explain the following research concept or method: {concept_or_method_name}. Based on the context or paper excerpt I provide below, explain: (1) what the concept is and why it matters in research, (2) the core intuition—why does it work this way?, (3) a step-by-step breakdown of how it's applied, and (4) one or two real limitations or assumptions it relies on. Explain at a {target_expertise_level} level (e.g., \"undergraduate with one algorithms course,\" \"graduate student familiar with ML basics,\" \"researcher new to the field\"). **Critical constraint**: ground all explanations in the source text provided. Do not invent examples, proofs, or extensions beyond what's described. If the text does not explain a step clearly, acknowledge that gap. Use analogies only if they are supported by how the source text frames the concept. Here is the relevant text:\n\n{source_text_or_paper_excerpt}",
+    "tags": ["explanation", "learning", "concept-clarity"]
+  },
+  {
+    "id": "research-lit-review-table",
+    "domain": "research",
+    "title": "Extract Structured Literature Review Table",
+    "description": "Convert descriptions of multiple papers into a structured table (method, dataset, results) for easy comparison and analysis.",
+    "template": "You are a research assistant helping organize a literature review. I will provide descriptions of {number_of_papers} research papers or work items. For each one, extract the following information into a structured table: (1) Paper/Work Title, (2) Main Method or Algorithm, (3) Dataset(s) or Benchmark(s) Used, (4) Key Quantitative Results (accuracy, F1, runtime, etc.), (5) Year/Venue (if mentioned). **Critical constraint**: only include information explicitly stated in the text provided. If a field is not mentioned (e.g., \"results not reported,\" \"dataset not named\"), leave that cell empty or mark it as \"[not specified in text].\" Do NOT infer missing benchmarks, datasets, or results. Format the output as a clean markdown table or CSV. Here are the paper descriptions:\n\n{paper_descriptions}",
+    "tags": ["literature-review", "structured-data", "comparison-table"]
+  },
+  {
+    "id": "research-identify-gaps",
+    "domain": "research",
+    "title": "Identify Research Gaps and Open Questions",
+    "description": "Scan provided related-work descriptions to identify unresolved questions, assumptions, and potential research directions.",
+    "template": "You are a research advisor helping a CS student identify gaps and future research directions. Read the following summaries or excerpts from related work in this research area. Identify: (1) recurring assumptions that multiple papers make (and note where they might be questioned), (2) results or conditions that are mentioned as \"left for future work\" or marked as limitations, (3) methodological gaps—are there obvious approaches or comparisons nobody has tried?, (4) datasets or domains that have NOT been tested, and (5) one or two promising research questions that seem underexplored based on the work provided. **Critical constraint**: only identify gaps based on what the texts actually state or what is absent from them. Do not invent research opportunities beyond what the provided papers hint at or leave open. Ground each gap with a specific quote or reference to the source text. Format your answer as a numbered list with clear headers and citations to the papers. Here is the related work:\n\n{related_work_summaries}",
+    "tags": ["research-gaps", "future-work", "literature-analysis"]
+  }
+]

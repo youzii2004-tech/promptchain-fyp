@@ -1,0 +1,42 @@
+[
+  {
+    "id": "sysdesign-database-schema-design",
+    "domain": "system_design",
+    "title": "Design and Justify a Database Schema",
+    "description": "Generate a normalized database schema for given requirements, analyzing tradeoffs between normalization and denormalization.",
+    "template": "You are a senior database architect. Design a complete relational database schema for: {business_requirements}. Constraints: {constraints} (e.g., 'must support real-time queries on {query_pattern}', 'peak QPS: {expected_load}'). Before proposing the final schema, analyze 3 design alternatives: (1) fully normalized 3NF design, (2) selectively denormalized for {use_case}, (3) hybrid approach. For each, list pros/cons regarding query performance, storage overhead, update complexity, and scalability to {projected_scale}. Then recommend your preferred design with its specific table definitions, primary/foreign keys, and indexing strategy. Provide SQL CREATE statements for at least the 4 core entities and justify why this schema best balances {primary_concern}.",
+    "tags": ["database-design", "schema-normalization", "performance", "trade-offs"]
+  },
+  {
+    "id": "sysdesign-api-contract-design",
+    "domain": "system_design",
+    "title": "Design a REST/GraphQL API Contract",
+    "description": "Design an API endpoint contract including request/response schemas, versioning strategy, and error handling.",
+    "template": "You are an API architect designing a {api_style} API for {feature_description}. Client requirements: {client_types} (e.g., 'web SPA, iOS/Android apps, third-party partners'). Expected load: {scale}. Key constraints: {constraints} (e.g., 'backwards compatibility required', 'p95 latency < {latency_ms}ms'). Design 3-5 core endpoints/operations with: full request/response JSON schemas, HTTP methods, status codes, pagination/filtering patterns, and caching headers. Propose a versioning strategy (URI versioning, header versioning, or semantic) and justify it for your client mix. Specify error response format including error codes and recovery guidance. Provide OpenAPI 3.0 or GraphQL schema definitions for at least 2 endpoints, and explain how this design handles {evolution_concern} (e.g., 'adding fields without breaking clients').",
+    "tags": ["API-design", "REST-GraphQL", "versioning", "schema"]
+  },
+  {
+    "id": "sysdesign-architecture-tradeoffs",
+    "domain": "system_design",
+    "title": "Evaluate Architectural Pattern Trade-offs",
+    "description": "Analyze multiple architectural approaches and recommend the best fit for given constraints.",
+    "template": "You are a senior systems architect evaluating architecture patterns for: {project_context}. Current state: {current_constraints} (e.g., 'team of 5 engineers, Node.js/React, $50k/month cloud budget'). Growth expectations: {growth_timeline} (e.g., '10x users in 18 months, 15+ independent domains'). Evaluate these 3 patterns: (1) Monolithic application, (2) Microservices-based, (3) Modular monolith. For each, analyze: scalability ceiling, deployment/release frequency, team coordination overhead, operational complexity, technology flexibility, and fault isolation. Provide 2-3 specific pros and cons per pattern tailored to {team_profile} and {scale_targets}. Finally recommend one architecture with implementation roadmap. Address how your choice handles {critical_requirement} (e.g., 'real-time data consistency', 'independent team velocity') and identify the decision that would force a re-architecture if wrong.",
+    "tags": ["architecture-patterns", "monolith-vs-microservices", "trade-offs", "scalability"]
+  },
+  {
+    "id": "sysdesign-design-pattern-application",
+    "domain": "system_design",
+    "title": "Apply a Design Pattern to Solve a Problem",
+    "description": "Identify and apply an appropriate design pattern to solve a specific architectural problem.",
+    "template": "You are a software architect solving this problem: {problem_statement}. System constraints: {constraints} (e.g., 'cannot refactor legacy code', '{platform_requirements}', 'response-time critical'). Identify 2-3 applicable design patterns (consider {pattern_category}: creational, structural, behavioral) that address this. For each pattern explain: (1) how it solves your specific problem, (2) pros/cons in this context, (3) common pitfalls to avoid. Select the best-fit pattern and provide: (a) a conceptual diagram (ASCII art or pseudocode structure), (b) implementation outline in {preferred_language}, (c) how it handles {edge_case}. Include working code snippets showing the core mechanism and one realistic usage scenario. Finally explain why this pattern is superior to alternatives for {specific_concern} (e.g., 'extensibility', 'testability', 'resource efficiency').",
+    "tags": ["design-patterns", "software-architecture", "problem-solving"]
+  },
+  {
+    "id": "sysdesign-scaling-strategy",
+    "domain": "system_design",
+    "title": "Design a Scaling Strategy for Growth",
+    "description": "Design a comprehensive scaling strategy addressing caching, sharding, load balancing, and database scaling.",
+    "template": "You are an infrastructure architect scaling a system from: {current_metrics} (e.g., '2M DAU, 20k QPS, 200GB data, 800ms p99 latency') to {scaling_target} (e.g., '20M DAU, 200k QPS, maintain p99 < 200ms'). Your stack: {tech_stack}. Design a complete scaling strategy addressing: (1) horizontal scaling topology (load balancing strategy, session management for {session_type}), (2) multi-layer caching (CDN/proxy/app-level/database-level strategies), (3) database scaling (sharding key choice, hotspot handling, consistency during scaling), (4) data consistency model (specify strong vs eventual consistency for {critical_data}). For each layer, specify: technologies, configuration tuning, cost per component, and failure modes. Create a scaled system diagram showing request flow through each layer. Identify the first bottleneck you expect to hit at {intermediate_scale} and your mitigation plan for it.",
+    "tags": ["scaling", "caching", "sharding", "load-balancing", "performance"]
+  }
+]

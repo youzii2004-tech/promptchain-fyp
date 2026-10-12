@@ -1,0 +1,42 @@
+[
+  {
+    "id": "debug-stack-trace-analysis",
+    "domain": "debugging",
+    "title": "Trace Stack Trace to Root Cause",
+    "description": "Analyze a stack trace to identify the true root cause of a runtime exception, not just where the error was thrown.",
+    "template": "You are a debugging expert. Your job is to help me understand this stack trace and identify the root cause of the runtime error.\n\nHere is the stack trace:\n{stack_trace}\n\nHere is the code context where the error originates:\n{code_snippet}\n\nPlease do the following:\n1. First, identify which function/line is the actual root cause (the FIRST place where something went wrong), not just where the error was thrown.\n2. Explain what assumption or invariant was violated.\n3. Suggest the minimal fix that addresses the root cause, not just catching the exception.\n4. Do NOT rewrite the entire function—only show the specific line(s) that need to change.\n\nFormat your answer with these sections: ROOT CAUSE, ASSUMPTION VIOLATED, MINIMAL FIX.",
+    "tags": ["exception-handling", "stack-trace", "root-cause"]
+  },
+  {
+    "id": "debug-unexpected-output",
+    "domain": "debugging",
+    "title": "Find Logic Bug from Output Mismatch",
+    "description": "Trace through code logic step-by-step to find where actual output diverged from expected output.",
+    "template": "You are a code debugging assistant. I have code that runs without crashing, but produces wrong output.\n\nHere is my code:\n{code_snippet}\n\nHere is what my code produced:\n{actual_output}\n\nHere is what I expected:\n{expected_output}\n\nHere is an example input that fails:\n{example_input}\n\nPlease:\n1. Trace through the logic step-by-step with my example input to find where the output diverged.\n2. Identify the specific line or condition that caused the wrong output.\n3. Explain the logic error in that line (off-by-one? wrong operator? missed case?).\n4. Suggest one targeted fix without rewriting the whole function.\n\nFormat as: TRACE ANALYSIS, LOGIC ERROR, TARGETED FIX.",
+    "tags": ["logic-bug", "output-mismatch", "tracing"]
+  },
+  {
+    "id": "debug-reproducer-test-case",
+    "domain": "debugging",
+    "title": "Write Minimal Reproducing Test Case",
+    "description": "Generate a minimal test case that reliably reproduces a bug and will pass once it is fixed.",
+    "template": "You are a test-writing expert. Help me write a minimal test case that reproduces this bug consistently.\n\nHere is the function I'm testing:\n{function_code}\n\nHere is the bug description:\n{bug_description}\n\nHere is the environment/context where it fails:\n{failure_context}\n\nWrite a test case that:\n1. Is as small as possible (minimal inputs/setup).\n2. Fails reliably with the buggy code.\n3. Will pass once the bug is fixed.\n4. Uses clear, readable assertions.\n\nReturn ONLY the test code, with a one-line comment at the top explaining what it tests.",
+    "tags": ["test-case", "reproducibility", "minimal-example"]
+  },
+  {
+    "id": "debug-patch-review",
+    "domain": "debugging",
+    "title": "Verify Fix Actually Solves the Bug",
+    "description": "Review a proposed fix (patch/diff) to confirm it addresses the root cause and does not introduce new bugs.",
+    "template": "You are a code reviewer. I think my fix solves a bug, but I want verification before I commit it.\n\nHere is the original buggy code:\n{original_code}\n\nHere is my fix (the diff):\n{patch}\n\nHere is the bug this was supposed to fix:\n{bug_description}\n\nHere is a test case that should pass after the fix:\n{test_case}\n\nPlease review:\n1. Does the fix address the root cause, or just a symptom?\n2. Could the fix introduce new bugs or side effects?\n3. Does it actually make the test case pass?\n4. Are there edge cases the fix misses?\n\nAnswer with: ADDRESSES ROOT CAUSE (yes/no), SIDE EFFECTS, EDGE CASES, VERDICT.",
+    "tags": ["patch-review", "verification", "side-effects"]
+  },
+  {
+    "id": "debug-silent-logic-bug",
+    "domain": "debugging",
+    "title": "Find Logic Bug with No Exception",
+    "description": "Isolate a logic error that produces wrong behavior without raising an exception or error message.",
+    "template": "You are a logic debugging expert. My code runs without errors, but produces subtly wrong results. There's no exception, just incorrect behavior.\n\nHere is my code:\n{code_snippet}\n\nHere is what it should do:\n{intended_behavior}\n\nHere is what it actually does (or what I observed):\n{actual_behavior}\n\nHere are test cases that expose the bug:\n{test_cases}\n\nFind the logic error by:\n1. Identifying the exact condition or loop where the logic breaks.\n2. Explaining the misunderstanding or mistake in that logic.\n3. Suggesting the minimal fix to the condition/loop.\n4. Do NOT refactor the whole function—only fix the faulty logic.\n\nFormat as: LOGIC ERROR LOCATION, ROOT MISUNDERSTANDING, MINIMAL FIX.",
+    "tags": ["logic-error", "silent-bug", "condition-analysis"]
+  }
+]
